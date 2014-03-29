@@ -16,7 +16,7 @@ pkgconfig_DATA = libbmd.pc
 
 lib_LTLIBRARIES = libbmd.la
 
-libbmd_la_LDFLAGS = -version-info @LIBBMD_VERSION@ -no-undefined
+libbmd_la_LDFLAGS = -version-info @LIBBMD_VERSION@ -no-undefined -ldl -lpthread
 libbmd_la_CXXFLAGS = $(AM_CXXFLAGS)
 libbmd_la_LIBADD = -lsupc++
 
