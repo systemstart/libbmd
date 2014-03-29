@@ -1,0 +1,9 @@
+#!/usr/bin/make -f
+%:
+	dh $@ --with autoreconf
+
+export LDFLAGS=-ldl
+
+override_dh_auto_configure:
+	dh_auto_configure -- --with-sdkdir=./src/decklink_sdk/Linux/include/
+

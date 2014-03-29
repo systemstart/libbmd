@@ -1,0 +1,19 @@
+Source: libbmd
+Maintainer: alexander <github@systemstart.net>
+Section: misc
+Priority: optional
+Standards-Version: 3.9.3
+Build-Depends:  
+	debhelper (>= 8),
+	autoconf, 
+	automake (>= 1.6),
+	dh-autoreconf
+Build-Conflicts:
+	autoconf (= 2.13),
+	automake (= 1.4)
+
+Package: libbmd0
+Architecture: any
+Description: C wrapper over Blackmagic Devices Decklink C++ api
+	C wrapper over Blackmagic Devices Decklink C++ api
+
