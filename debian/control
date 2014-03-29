@@ -13,6 +13,8 @@ Build-Conflicts:
 	automake (= 1.4)
 
 Package: libbmd0
+Depends:
+	desktopvideo (>= 10.0a7)
 Architecture: any
 Description: C wrapper over Blackmagic Devices Decklink C++ api
 	C wrapper over Blackmagic Devices Decklink C++ api
