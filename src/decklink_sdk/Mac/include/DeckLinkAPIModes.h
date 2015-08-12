@@ -1,5 +1,5 @@
 /* -LICENSE-START-
-** Copyright (c) 2013 Blackmagic Design
+** Copyright (c) 2014 Blackmagic Design
 **
 ** Permission is hereby granted, free of charge, to any person or organization
 ** obtaining a copy of the software and accompanying documentation covered by
@@ -84,6 +84,12 @@ enum _BMDDisplayMode {
     bmdMode2k24                                                  = '2k24',
     bmdMode2k25                                                  = '2k25',
 
+    /* DCI Modes (output only) */
+
+    bmdMode2kDCI2398                                             = '2d23',
+    bmdMode2kDCI24                                               = '2d24',
+    bmdMode2kDCI25                                               = '2d25',
+
     /* 4k Modes */
 
     bmdMode4K2160p2398                                           = '4k23',
@@ -91,6 +97,9 @@ enum _BMDDisplayMode {
     bmdMode4K2160p25                                             = '4k25',
     bmdMode4K2160p2997                                           = '4k29',
     bmdMode4K2160p30                                             = '4k30',
+    bmdMode4K2160p50                                             = '4k50',
+    bmdMode4K2160p5994                                           = '4k59',
+    bmdMode4K2160p60                                             = '4k60',
 
     /* DCI Modes (output only) */
 
@@ -123,6 +132,8 @@ enum _BMDPixelFormat {
     bmdFormat8BitARGB                                            = 32,
     bmdFormat8BitBGRA                                            = 'BGRA',
     bmdFormat10BitRGB                                            = 'r210',	// Big-endian RGB 10-bit per component with SMPTE video levels (64-960). Packed as 2:10:10:10
+    bmdFormat12BitRGB                                            = 'R12B',	// Big-endian RGB 12-bit per component with full range (0-4095). Packed as 12-bit per component
+    bmdFormat12BitRGBLE                                          = 'R12L',	// Little-endian RGB 12-bit per component with full range (0-4095). Packed as 12-bit per component
     bmdFormat10BitRGBXLE                                         = 'R10l',	// Little-endian 10-bit RGB with SMPTE video levels (64-940)
     bmdFormat10BitRGBX                                           = 'R10b'	// Big-endian 10-bit RGB with SMPTE video levels (64-940)
 };
@@ -149,7 +160,7 @@ public:
     virtual HRESULT Next (/* out */ IDeckLinkDisplayMode **deckLinkDisplayMode) = 0;
 
 protected:
-    virtual ~IDeckLinkDisplayModeIterator () {}; // call Release method to drop reference count
+    virtual ~IDeckLinkDisplayModeIterator () {} // call Release method to drop reference count
 };
 
 /* Interface IDeckLinkDisplayMode - represents a display mode */
@@ -166,7 +177,7 @@ public:
     virtual BMDDisplayModeFlags GetFlags (void) = 0;
 
 protected:
-    virtual ~IDeckLinkDisplayMode () {}; // call Release method to drop reference count
+    virtual ~IDeckLinkDisplayMode () {} // call Release method to drop reference count
 };
 
 /* Functions */
@@ -174,7 +185,7 @@ protected:
 extern "C" {
 
 
-};
+}
 
 
 #endif /* defined(BMD_DECKLINKAPIMODES_H) */
